@@ -1,0 +1,29 @@
+* Overview
+
+The basic idea here is for me to write a little bit of go code every
+day, and then write about what I did. The rules are to do SOMETHING
+every day that involves pushing some code to github. If I don't, my
+wife gets ten bucks for her clothes shopping fund. If I do, then for
+every 7 day streak, I get ten bucks for my 'buy whatever I want'
+fund. The purpose is threefold:
+
+1. Learn go.
+2. Have consistent github activity.
+3. Improve writing and blogging skills.
+
+Hopefully soon, pushing code and posts will automatically update the
+site, and I'll have some pretty way to display the code I wrote along
+side the post.
+
+
+** Day 1
+Got basic structure set up - mostly looking here:
+https://golang.org/doc/code.html
+
+Basic HTTP server running - http://golang.org/doc/articles/wiki/
+
+
+* Future work ideas
+- get code running on some hosting
+- set up git hooks to restart it every time there's a push
+- write a supervisor in go to restart it if it dies.
