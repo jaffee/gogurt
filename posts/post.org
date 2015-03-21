@@ -22,6 +22,32 @@ https://golang.org/doc/code.html
 
 Basic HTTP server running - http://golang.org/doc/articles/wiki/
 
+** Day 2
+Today I added some html files, still loosely following the "Writing
+Web Applications" page from yesterday.
+
+Go's 'html/template' works by passing a struct to the template's
+Execute method which contains fields named the same as the variables
+in the template. I haven't played around with what happens if you have
+stuff in your struct that isn't in the template or vice versa.
+
+So now I have a root page and another page at '/day/' - goes handlers
+seem to do routing by a variant of longest prefix matching, as the '/'
+url matches all, but the '/day/' gets used if the URL starts with
+/day/ (or just /day interestingly). But if you have handler for
+'/day', that will only match '/day'.
+
+After that was going, I started poking around at Github's API - the
+idea is going to be to automatically create the page for whatever date
+is specified in the URL, i.e. '/day/20150319', by pulling the post and
+any commits for the day from Github. Once the day is over, I'll cache
+that data in a file so that we don't need to pound github on every
+request.
+
+It looks like github's api will be fairly simple - no auth appears to
+be necessary, and the URL structure is straightforward. I've got some
+ideas for parsing JSON in go based on some things that were said at
+the ATX golang meetup, so we'll see how that goes.
 
 * Future work ideas
 - get code running on some hosting
