@@ -49,6 +49,9 @@ be necessary, and the URL structure is straightforward. I've got some
 ideas for parsing JSON in go based on some things that were said at
 the ATX golang meetup, so we'll see how that goes.
 
+** Day 3
+Switched gears and did this: [[http://github.com/jaffee/robpike.io]]
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
