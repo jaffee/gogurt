@@ -52,6 +52,11 @@ the ATX golang meetup, so we'll see how that goes.
 ** Day 3
 Switched gears and did this: [[http://github.com/jaffee/robpike.io]]
 
+** Day 4
+Started on =github.go= using net/http to hit the github api, and
+encoding/json to read json data into defined type/structs. Not sure
+how to read in something like the repos_url which is an array at the
+top level... will have to play around with that.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
