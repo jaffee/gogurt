@@ -2,5 +2,6 @@
 <html>
   <body>
 	<h1> {{.Title}} </h1>
+	{{range .Commits}} <div class="commit">{{.}}</div> {{end}}
   </body>
 </html>

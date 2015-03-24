@@ -57,6 +57,29 @@ Started on =github.go= using net/http to hit the github api, and
 encoding/json to read json data into defined type/structs. Not sure
 how to read in something like the repos_url which is an array at the
 top level... will have to play around with that.
+** Day 5
+Today I started integrating the github api code with the
+website/server code. I had to move github.go into a github directory
+in order to make go happy with my package structure, run =go build= on
+the github package, then =go run= on gogurt/main.go. But I was able to
+import and use functions defined in github.go from main.go, so that's
+solid.
+
+I also learned how to loop over slices in templates which used kind of
+an odd syntax, but you can see it in =day.html=
+
+I played with the time package quite a bit, getting the current time,
+pulling the year, month, and day out of it, and then constructing a
+new time with H,M,S set to 0 in order to get the beginning of the day.
+
+I also figured out how to parse JSON into a slice of objects which was
+cool.
+
+Tomorrow I'm going to install go auto-complete into emacs so that I
+can move a bit faster on silly things like string operations, and then
+have my git commits from the previous day displayed on the webpage
+(pretty close right now I think).
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
