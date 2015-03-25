@@ -80,6 +80,14 @@ can move a bit faster on silly things like string operations, and then
 have my git commits from the previous day displayed on the webpage
 (pretty close right now I think).
 
+** Day 6
+Set up autocomplete in emacs with company mode and gocode. Seems to
+work pretty nicely.
+
+Figured out how to strip the {sha} part of commit urls with
+strings.Replace. A little strange to me that strings themselves don't
+have methods and you have to use external methods, but I know that's
+just a product of too much Python.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
