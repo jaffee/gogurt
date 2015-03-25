@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/jaffee/gogurt/github"
 	"html/template"
 	"net/http"
-	"github.com/jaffee/gogurt/github"
 	"time"
 )
 
 type Post struct {
-	Title string
+	Title   string
 	Commits []string
 }
 
@@ -22,7 +22,7 @@ func serveDay(w http.ResponseWriter, r *http.Request) {
 	curtime := time.Now()
 	year, month, day := curtime.Date()
 	loc, _ := time.LoadLocation("Local")
-	begOfDay := time.Date(year, month, day, 0, 0, 0, 0, loc)
+	begOfDay := time.Date(year, month, day-2, 0, 0, 0, 0, loc)
 	post := &Post{Title: date, Commits: github.GetCommits("jaffee", begOfDay)}
 	t, _ := template.ParseFiles("day.html")
 	t.Execute(w, post)
