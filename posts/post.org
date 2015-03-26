@@ -88,6 +88,10 @@ Figured out how to strip the {sha} part of commit urls with
 strings.Replace. A little strange to me that strings themselves don't
 have methods and you have to use external methods, but I know that's
 just a product of too much Python.
+** Day 7
+Today I was pretty lame - tried breaking up the big getcommits
+function, and trying to figure out a way to unmarshal json into the
+correct size slice - without having to try to guess the size first.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push

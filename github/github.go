@@ -1,4 +1,4 @@
-package github
+package main
 
 import (
 	"encoding/json"
@@ -51,7 +51,7 @@ func (com *commit) String() string {
 // 	}
 // }
 
-func GetCommits(username string, since time.Time) []string {
+func GetCommitsFromUsername(username string, since time.Time) []string {
 	body := getBody("https://api.github.com/users/" + username)
 	var u user
 	err := json.Unmarshal(body, &u)
@@ -71,6 +71,30 @@ func GetCommits(username string, since time.Time) []string {
 		json.Unmarshal(body, &commits_slice)
 		all_commits = append(all_commits, commits_slice...)
 	}
+	all_strs := make([]string, len(all_commits))
+	for i := 0; i < len(all_commits); i++ {
+		all_strs[i] = all_commits[i].String()
+	}
+	//	all_strs := []string{"a", "b"}
+	return all_strs
+}
+
+func main() {
+	loc, _ := time.LoadLocation("Local")
+	GetCommits("jaffee", "gogurt", time.Date(2014, 1, 1, 1, 1, 1, 1, loc))
+}
+
+func GetCommits(username string, repo string, since time.Time) []string {
+	base_url := "https://api.github.com/repos/" + username + "/" + repo
+	time_layout := "2006-01-02T15:04:05Z"
+	body := getBody(base_url + "?since=" + since.Format(time_layout))
+	commits_slice := make([]commit, 1)
+	json.Unmarshal(body, &commits_slice) // This doesn't seem to work
+	fmt.Printf("commit slice %v\n", commits_slice)
+	return stringifyCommitSlice(commits_slice)
+}
+
+func stringifyCommitSlice(all_commits []commit) []string {
 	all_strs := make([]string, len(all_commits))
 	for i := 0; i < len(all_commits); i++ {
 		all_strs[i] = all_commits[i].String()
