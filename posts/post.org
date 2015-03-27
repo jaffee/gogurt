@@ -92,6 +92,11 @@ just a product of too much Python.
 Today I was pretty lame - tried breaking up the big getcommits
 function, and trying to figure out a way to unmarshal json into the
 correct size slice - without having to try to guess the size first.
+** Day 8
+Wrote a function to pretty print json using json.Indent - then started
+reading "effective go".
+
+Also made use of bytes.Buffer - will have to explore bytes lib more.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push

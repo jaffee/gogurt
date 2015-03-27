@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -94,6 +95,16 @@ func GetCommits(username string, repo string, since time.Time) []string {
 	return stringifyCommitSlice(commits_slice)
 }
 
+func ppJson(jsonb []byte) {
+	var pJSON bytes.Buffer
+	err := json.Indent(&pJSON, jsonb, "", "  ")
+	if err != nil {
+		fmt.Println("Bad JSON")
+		return
+	}
+	fmt.Printf("%v", string(pJSON.Bytes()))
+}
+
 func stringifyCommitSlice(all_commits []commit) []string {
 	all_strs := make([]string, len(all_commits))
 	for i := 0; i < len(all_commits); i++ {
@@ -121,7 +132,8 @@ func getBody(url string) []byte {
 	if r := handle_url_err(url, err); r != nil {
 		return r
 	}
-	fmt.Printf("Got body for URL %v\n%v\n", url, string(body))
+	ppJson(body)
+	// fmt.Printf("Got body for URL %v\n%v\n", url, string(body))
 	return body
 }
 
