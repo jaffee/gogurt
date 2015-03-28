@@ -86,11 +86,11 @@ func main() {
 }
 
 func GetCommits(username string, repo string, since time.Time) []string {
-	base_url := "https://api.github.com/repos/" + username + "/" + repo
+	base_url := "https://api.github.com/repos/" + username + "/" + repo + "/commits"
 	time_layout := "2006-01-02T15:04:05Z"
 	body := getBody(base_url + "?since=" + since.Format(time_layout))
-	commits_slice := make([]commit, 1)
-	json.Unmarshal(body, &commits_slice) // This doesn't seem to work
+	var commits_slice []commit
+	json.Unmarshal(body, &commits_slice)
 	fmt.Printf("commit slice %v\n", commits_slice)
 	return stringifyCommitSlice(commits_slice)
 }

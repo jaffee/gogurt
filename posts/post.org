@@ -97,6 +97,16 @@ Wrote a function to pretty print json using json.Indent - then started
 reading "effective go".
 
 Also made use of bytes.Buffer - will have to explore bytes lib more.
+** Day 9
+I've been reading about reflection as I try to figure out how
+json.Unmarshal works. I want to figure out how it unmarshals json
+arrays into slices so I can figure out how to allocate slices
+beforehand. ...and I figured it out - Unmarshal automatically
+allocates according to the documentation, so all you have to do is
+declare the slice like so
+#+begin_src go
+	var commits_slice []commit
+#+end_src
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
