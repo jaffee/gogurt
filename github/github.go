@@ -1,4 +1,4 @@
-package main
+package github
 
 import (
 	"bytes"
@@ -24,7 +24,7 @@ type repo struct {
 	Commits_url     string
 }
 
-type commit struct {
+type Commit struct {
 	Sha string
 	Url string
 }
@@ -50,6 +50,10 @@ func (com *commit) String() string {
 // 		body = getBody(repos_slice[i].Commits_url)
 
 // 	}
+// }
+// func main() {
+// 	loc, _ := time.LoadLocation("Local")
+// 	GetCommits("jaffee", "gogurt", time.Date(2014, 1, 1, 1, 1, 1, 1, loc))
 // }
 
 func GetCommitsFromUsername(username string, since time.Time) []string {
@@ -78,11 +82,6 @@ func GetCommitsFromUsername(username string, since time.Time) []string {
 	}
 	//	all_strs := []string{"a", "b"}
 	return all_strs
-}
-
-func main() {
-	loc, _ := time.LoadLocation("Local")
-	GetCommits("jaffee", "gogurt", time.Date(2014, 1, 1, 1, 1, 1, 1, loc))
 }
 
 func GetCommits(username string, repo string, since time.Time) []string {
