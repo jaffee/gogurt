@@ -104,6 +104,17 @@ arrays into slices so I can figure out how to allocate slices
 beforehand. ...and I figured it out - Unmarshal automatically
 allocates according to the documentation, so all you have to do is
 declare the slice like so
+
+** Day 10
+Starting to learn the hard lessons of no generic functions in go (like
+'map'). I guess it's not too bad to just write a quick for loop, and
+maybe it's worth it for the type safety?
+
+I'm thinking a Post will consist of a title and a some repositories
+which I'll hard code for now, and then each repository will be a name
+and some commits (all of this is on a per day basis), so each page
+will be a list of repos with their commits next to them. Not sure how
+I'll work the posts in yet.
 #+begin_src go
 	var commits_slice []commit
 #+end_src
