@@ -150,6 +150,15 @@ specific commit (by sha), whereas I was still trying to pull a bunch
 of commits in go. I had to refactor my code to get the list of
 commits, and then pull each one separately with the correct header
 set, and that worked just dandily.
+** Day 13
+So close. I've encountered some kind of template processing bug while
+attempting to get unmarshaled json read from a file rendered as a
+template.
+
+It appears to be having trouble escaping something, but what's odd is
+that the bug occurs even when I take everything out of the
+template. It's going to take some more digging to figure out what's
+going on... guess I know what I'm doing tomorrow.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
