@@ -1,56 +1,73 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/jaffee/gogurt/github"
 	"html/template"
+	"io/ioutil"
 	"net/http"
-	"strings"
-	"time"
 )
+
+const activityPath = "/Users/jaffee/go/src/github.com/jaffee/github/"
+
+type RepoActivity struct {
+	Name    string
+	Commits []CommitDiff
+}
+
+type CommitDiff struct {
+	Metadata Commit
+	Diff     string
+}
+
+type Commit struct {
+	Url     string
+	Message string
+}
 
 type Post struct {
 	Title    string
-	Sections []Repo
+	Sections []RepoActivity
 }
 
-type Repo struct {
-	Name    string
-	Commits []github.Commit
-}
-
-func (r *Repo) String() string {
-	var cstrings []string
-	for i := range r.Commits {
-		cstrings := append(cstrings, r.Commits[i].String())
+func check(e error) {
+	if e != nil {
+		panic(e)
 	}
-	return r.Name + "/n" + strings.Join(cstrings, "\n")
 }
 
 func serveRoot(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<html><body>Letsssssss goooooooo! %s\n</body></html>", r.URL.Path[1:])
+	// TODO read *.activity to see available days
 }
 
 func serveDay(w http.ResponseWriter, r *http.Request) {
-	repos := [...]string{"gogurt", "robpike.io", "goplait"}
-	username := "jaffee"
 	date := r.URL.Path[len("/day/"):]
-	curtime := time.Now()
-	year, month, day := curtime.Date()
-	loc, _ := time.LoadLocation("Local")
-	begOfDay := time.Date(year, month, day-4, 0, 0, 0, 0, loc)
-	RepoSlice := make([]Repo, len(repos))
-	for i := range repos {
-		RepoSlice[i].Name = repos[i]
-		RepoSlice[i].Commits = github.GetCommits(username, repos[i], begOfDay)
-	}
+	fname := activityPath + date + ".activity"
+	fmt.Println(fname)
+	fbytes, err := ioutil.ReadFile(fname)
+	var repoActivities []RepoActivity
+	err = json.Unmarshal(fbytes, &repoActivities)
 
-	post := &Post{Title: date, Sections: RepoSlice}
-	t, _ := template.ParseFiles("day.html")
+	check(err)
+
+	// curtime := time.Now()
+	// year, month, day := curtime.Date()
+	// loc, _ := time.LoadLocation("Local")
+	// begOfDay := time.Date(year, month, day-4, 0, 0, 0, 0, loc)
+	// RepoSlice := make([]Repo, len(repos))
+	// for i := range repos {
+	// 	RepoSlice[i].Name = repos[i]
+	// 	RepoSlice[i].Commits = github.GetCommits(username, repos[i], begOfDay)
+	// }
+
+	post := &Post{Title: date, Sections: repoActivities}
+	t, _ := template.ParseFiles("realday.html")
 	t.Execute(w, post)
 }
 
 func main() {
+	// TODO spin off file checker goroutine to see if new data needs to be fetched
 	http.HandleFunc("/", serveRoot)
 	http.HandleFunc("/day/", serveDay)
 	http.ListenAndServe(":8080", nil)

@@ -1,7 +1,24 @@
 <!doctype html>
 <html>
   <body>
-	<h1> {{.Title}} </h1>
-	{{range .Sections}} <div class="commit">{{.}}</div> {{end}}
+	<h1> {{/*.Title*/}} </h1>
+	{{/*range .Sections*/}}
+	<div class="section">
+	  <h2>{{/*.Name*/}}</h2>
+	  {{/* range .Commits */}}
+  	    <div class="commit">
+		  <div class="commitmessage">
+			{{/* {{.Metadata.Message}} */}}
+		  </div>
+		  <div class="commiturl">
+			{{/* {{.Metadata.Url}} */}}
+		  </div>
+		  <div class="diff">
+			{{/* {{.Diff}} */}}
+		  </div>
+		</div>
+	  {{/*end*/}}
+	</div>
+	{{/*end*/}}
   </body>
 </html>
