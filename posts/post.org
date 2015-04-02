@@ -159,6 +159,17 @@ It appears to be having trouble escaping something, but what's odd is
 that the bug occurs even when I take everything out of the
 template. It's going to take some more digging to figure out what's
 going on... guess I know what I'm doing tomorrow.
+** Day 14
+Alright! We have a page. With CSS. What great joy!
+
+It turned out that my horrible template bug from yesterday was because
+I was running gogurt from a different directory and it couldn't find
+the .html file... doh.
+
+Then I couldn't get any browsers to use my css file which after a
+while I realized was because I was serving the file by reading the
+bytes and then just giving it to the writer object. Using
+http.Servefile seems to set the headers properly and the CSS got applied.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
