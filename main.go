@@ -60,9 +60,7 @@ func serveDay(w http.ResponseWriter, r *http.Request) {
 
 func serveStatic(w http.ResponseWriter, r *http.Request) {
 	fname := staticloc + r.URL.Path[len("/static/"):]
-	fbytes, err := ioutil.ReadFile(fname)
-	check(err)
-	w.Write(fbytes)
+	http.ServeFile(w, r, fname)
 }
 
 func main() {
