@@ -9,6 +9,8 @@ import (
 )
 
 const activityPath = "/Users/jaffee/go/src/github.com/jaffee/github/"
+const dayloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
+const staticloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
 
 type RepoActivity struct {
 	Name    string
@@ -50,25 +52,23 @@ func serveDay(w http.ResponseWriter, r *http.Request) {
 	err = json.Unmarshal(fbytes, &repoActivities)
 
 	check(err)
-
-	// curtime := time.Now()
-	// year, month, day := curtime.Date()
-	// loc, _ := time.LoadLocation("Local")
-	// begOfDay := time.Date(year, month, day-4, 0, 0, 0, 0, loc)
-	// RepoSlice := make([]Repo, len(repos))
-	// for i := range repos {
-	// 	RepoSlice[i].Name = repos[i]
-	// 	RepoSlice[i].Commits = github.GetCommits(username, repos[i], begOfDay)
-	// }
-
 	post := &Post{Title: date, Sections: repoActivities}
-	t, _ := template.ParseFiles("realday.html")
+	t, err := template.ParseFiles(dayloc + "day.html")
+	check(err)
 	t.Execute(w, post)
+}
+
+func serveStatic(w http.ResponseWriter, r *http.Request) {
+	fname := staticloc + r.URL.Path[len("/static/"):]
+	fbytes, err := ioutil.ReadFile(fname)
+	check(err)
+	w.Write(fbytes)
 }
 
 func main() {
 	// TODO spin off file checker goroutine to see if new data needs to be fetched
 	http.HandleFunc("/", serveRoot)
 	http.HandleFunc("/day/", serveDay)
+	http.HandleFunc("/static/", serveStatic)
 	http.ListenAndServe(":8080", nil)
 }
