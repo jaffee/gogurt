@@ -6,10 +6,11 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 const activityPath = "/Users/jaffee/go/src/github.com/jaffee/github/"
-const dayloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
+const templateloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
 const staticloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
 
 type RepoActivity struct {
@@ -38,9 +39,25 @@ func check(e error) {
 	}
 }
 
+type RootPage struct {
+	Dates []string
+}
+
 func serveRoot(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<html><body>Letsssssss goooooooo! %s\n</body></html>", r.URL.Path[1:])
-	// TODO read *.activity to see available days
+	files, err := ioutil.ReadDir(activityPath)
+	check(err)
+	dates := make([]string, len(files))
+	for i, f := range files {
+		name := f.Name()
+		if strings.HasSuffix(name, ".activity") {
+			loc := strings.LastIndex(name, ".activity")
+			dates[i] = name[:loc]
+		}
+	}
+	rootpg := &RootPage{Dates: dates}
+	t, err := template.ParseFiles(templateloc + "root.html")
+	check(err)
+	t.Execute(w, rootpg)
 }
 
 func serveDay(w http.ResponseWriter, r *http.Request) {
@@ -53,7 +70,7 @@ func serveDay(w http.ResponseWriter, r *http.Request) {
 
 	check(err)
 	post := &Post{Title: date, Sections: repoActivities}
-	t, err := template.ParseFiles(dayloc + "day.html")
+	t, err := template.ParseFiles(templateloc + "day.html")
 	check(err)
 	t.Execute(w, post)
 }

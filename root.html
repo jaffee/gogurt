@@ -1,8 +1,14 @@
 <!doctype html>
 <html>
   <body>
-	<a href='/day/111213'>
-	  Day
-	</a>
+	<div class="datelinks">
+	  {{range .Dates}}
+	  <div class="datelink">
+		<a href='/day/{{.}}'>
+		  {{.}}
+		</a>
+	  </div>
+	  {{end}}
+	</div>
   </body>
 </html>
