@@ -169,7 +169,23 @@ the .html file... doh.
 Then I couldn't get any browsers to use my css file which after a
 while I realized was because I was serving the file by reading the
 bytes and then just giving it to the writer object. Using
-http.Servefile seems to set the headers properly and the CSS got applied.
+http.Servefile seems to set the headers properly and the CSS got
+applied.
+** Day 15
+Made use of ioutil.ReadDir to do effectively do an `ls` on the
+directory with all the activity files, and then used some stuff from
+the strings package to get just the date part of the filename and gave
+the list of those to the root template to populate the root page with
+links to all the date pages.
+
+Pretty straightforward day... getting more comfortable in go, no major
+problems.
+
+I've got some grand ideas for a chatbot sometime soon, and I'd also
+like to do a file watcher that will rebuild my code and restart the
+server whenever files change - Flask style (probably 170 other web
+frameworks too).
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
