@@ -186,6 +186,23 @@ like to do a file watcher that will rebuild my code and restart the
 server whenever files change - Flask style (probably 170 other web
 frameworks too).
 
+** Day 16
+Started doing some work on the github fetcher - I'd like to make it a
+long running process that repeatedly checks to see what days it needs
+to fetch, and then does so. I'd also like it to be resilient to
+problems with the github api - it going down, rate limiting, etc.
+
+Today I converted all my function calls to explicitly return error
+values so that I could see what was going on higher up the stack and
+decide whether to wait and retry or not. In retrospect, I think it
+would be a lot cleaner to panic and defer, but we'll see.
+
+Tomorrow I'd like to implement the "long runningness" and
+resilience. I'll need to make a checker that figures out what days
+need to be pulled based on current files and current date, and then
+the puller which continuously tries to pull down all the stuff
+necessary for a given day, intelligently waiting and retrying as
+necessary.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
