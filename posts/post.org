@@ -203,6 +203,38 @@ need to be pulled based on current files and current date, and then
 the puller which continuously tries to pull down all the stuff
 necessary for a given day, intelligently waiting and retrying as
 necessary.
+** Day 17
+Today I wrote the checker that figures out what days are not
+represented among the activity files in the time range we're looking
+at. It looks a little complex, but I've got some ideas to break it
+out. Ideally, I think it will take in just a list and a start and end
+date and will return a list of the days not represented in the input
+list - I'll take care of all the I/O and normalization outside of
+it.
+
+Writing this function made me feel like Go is a lot more verbose than
+Python - that may be partially due to the fact that I don't know the
+right way to do things, but I think it also is likely due to lots of
+explicit error handling and type converting. Because functions like
+Atoi return both an error val and an int, you can't call them inline
+in a function call, and because you have to handle the error, that
+means that what was once one line is now at least 3.
+
+I have also noticed however that bugs are pretty easy to track down -
+especially when you handle errors (if you don't it's a nightmare - see
+the 'template' bug from a few days ago). Where in Python I usually
+resort to a debugger as soon as something goes wrong, in Go the errors
+have been pretty straightforward based on the message and line
+number. The number of things that can go wrong on any one line is
+tightly constrained due to being able to do less on a line, and all
+the type constraints that you know were enforced at compile time.
+
+It's a different paradigm than I'm used to, and it's a little annoying
+when your trying to throw down some code quickly, but it's also more
+predictable time-wise, and I think it will pay off as codebases grow
+larger.
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
