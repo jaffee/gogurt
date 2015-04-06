@@ -234,6 +234,28 @@ when your trying to throw down some code quickly, but it's also more
 predictable time-wise, and I think it will pay off as codebases grow
 larger.
 
+** Day 18
+Today I wrote the main loop for the long running process behavior and
+am testing it... as we speak. er... as I write.
+
+To do this, I implemented the behavior for tolerating rate limits -
+this involves checking the http status code and then reading the
+header to see when the rate limit will be lifted, and sleeping until
+then. I implemented this behavior right inside the functions that make
+the http request, so they can potentially sleep for a long time - this
+is probably bad design, but hey... put it on the list of things to
+refactor.
+
+I ran into a lot of silly type problems, so I'm getting more facile at
+converting everything properly. Usually you can just call the name of
+the type like a function to convert the value i.e. int64(someint),
+although this isn't always possible. I hope to be able to write a more
+coherent explanation of why not soon.
+
+-- time passes --
+
+Ok, it finished its first round... it created all the right files, but
+they're all empty.... sigh. I'll have to track this one down tomorrow.
 
 * Future work ideas
 - get code running on some hosting
