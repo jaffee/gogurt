@@ -257,6 +257,21 @@ coherent explanation of why not soon.
 Ok, it finished its first round... it created all the right files, but
 they're all empty.... sigh. I'll have to track this one down tomorrow.
 
+** Day 19
+Guess I fixed the bug. I definitely fixed another bug, and now things
+seem to be working. My code to determine if the previous date was 1
+day behind the current date kinda sucked, so I wrote an actual
+function and test that seems to work very well. This was helped by the
+fact that go Time objects roll over in a nice way - i.e. December 32
+is January 1st of the next year.
+
+Re-running the whole thing now - ratelimit should reset in a few
+minutes and we'll see if that works.
+
+... and it seems to have - and it ran out again. Not sure how it needs
+so many requests. I'm sleepy.
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
