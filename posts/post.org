@@ -271,7 +271,20 @@ minutes and we'll see if that works.
 ... and it seems to have - and it ran out again. Not sure how it needs
 so many requests. I'm sleepy.
 
+** Day 20
+Busy day, and I have less than four minutes to write this.
 
+I fixed a couple problems in the github puller, and I think it's
+working pretty nicely now. One issue was that timezone stuff wasn't
+working as expected, but I got that sorted out, so commits should
+appear on the right dates now.
+
+I started a new project called gosup, which stand for go
+supervisor. The idea is that it will run a program, and then watch all
+related files for changes and restart or re-run the program whenever
+files change. Should be pretty cool - I'm looking into some other go
+libraries and projects for file change notification - maybe I'll even
+get to contribute elsewhere :)
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
