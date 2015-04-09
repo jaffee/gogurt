@@ -285,6 +285,16 @@ related files for changes and restart or re-run the program whenever
 files change. Should be pretty cool - I'm looking into some other go
 libraries and projects for file change notification - maybe I'll even
 get to contribute elsewhere :)
+
+** Day 21
+Added a file watcher and run loop to gosup. It now watches the file,
+tries to kill the process when it changes, and then starts a new
+process.
+
+Unfortunately, the process is not being killed for some reason. I
+found an unanswered SO post that seems to have the same
+issue.
+http://stackoverflow.com/questions/22470193/why-wont-go-kill-a-child-process-correctly
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
