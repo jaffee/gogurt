@@ -295,6 +295,23 @@ Unfortunately, the process is not being killed for some reason. I
 found an unanswered SO post that seems to have the same
 issue.
 http://stackoverflow.com/questions/22470193/why-wont-go-kill-a-child-process-correctly
+** Day 22
+Welp, I fixed the cmd.Kill issue from yesterday - added some links to
+the SO post to explain it. Basically had to make sure all the child
+processes were killed as well - unfortunately my fix is platform
+dependent - fortunately it works on all the platforms I care about.
+
+Another problem that I had was that killing gosup with C-c did not
+kill the child process, so I had to add a signal handler which would
+send the kill signal to the subprocess. Additionally, I had to make
+sure that the subprocess finished getting killed before calling
+os.Exit in the signal handler thread. To do this I made use of the
+same channel that was used to send the kill, to send back that the
+kill was complete - I had to switch to an unbuffered channel so that
+the process sending the kill signal didn't receive its own signal. Fun
+times.
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
