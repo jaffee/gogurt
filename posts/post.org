@@ -311,6 +311,21 @@ kill was complete - I had to switch to an unbuffered channel so that
 the process sending the kill signal didn't receive its own signal. Fun
 times.
 
+** Day 23
+I started refactoring the github puller into a library for hitting the
+github api, and the cmd subdirectory which houses the executable which
+deals with command line input and calls functions in the github lib to
+pull things from the api.
+
+Right now, running `go install` inside the cmd directory builds an
+executable called "cmd" - I'd like it to be called something else, and
+I'm not sure if there is a way to change it without changing the
+directory name.
+
+Refactoring is also simplifying the code - most notably, instead of
+passing year, month, and day around, I just pass the date object
+everywhere - much nicer.
+
 
 * Future work ideas
 - get code running on some hosting
