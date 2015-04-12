@@ -326,6 +326,15 @@ Refactoring is also simplifying the code - most notably, instead of
 passing year, month, and day around, I just pass the date object
 everywhere - much nicer.
 
+** Day 24
+
+Some sleepy refactoring tonight - I fixed the timezone formatting bug
+again - could have sworn I'd already done that, but it was still
+busted. For some reason installing and running cmd was not picking up
+changes in github, and I was unable to figure out why tonight. But I'm
+not in a state for figuring out much right now, so I think I'll call
+it a night and regroup tomorrow.
+
 
 * Future work ideas
 - get code running on some hosting
