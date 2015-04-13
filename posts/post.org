@@ -335,6 +335,36 @@ changes in github, and I was unable to figure out why tonight. But I'm
 not in a state for figuring out much right now, so I think I'll call
 it a night and regroup tomorrow.
 
+** Day 25
+Here's the deal, pretty simple. My binary wasn't being rebuilt because
+I changed the package name to "cmd" from "main". Your go package must
+be "main" if you want a binary. I didn't notice, because it doesn't
+complain at you if your package name isn't main, and the old binary
+that had been previously built was still on my PATH.
+
+Lessons of go: a programming language should be flexible in what you
+can do with your programs, but inflexible in how you build your
+program. If there's only one way to generate a binary, then every
+program in that language that had to generate a binary will do it the
+same way, and developer confusiong will be greatly reduced. That's
+awesome for something that doesn't really matter how you do it, as
+long as there is a way and its fairly straighforward. If there was
+only one way to listen for an http connection, that would be too
+restrictive - what if you wanted to implement some custom logic around
+it based on the round trip time or something? You wouldn't be able to
+if you were locked in to that one way. When designing a programming
+language, decisions should be made with an eye toward removing
+opportunities for bikeshedding - if it doesn't matter how it gets
+done, make sure there's only one way to do it.
+
+In other news today, I didn't commit that much - except for fixing
+that problem and not displaying repos with no commmits for the day on
+gogurt. I also started working on getting gogurt actually online,
+which began to necessitate breaking out config from code - I'll work
+on that tomorrow. I'm also going to work on cutting down the amount of
+config by figuring out which repositories have go code in them on the
+fly and grabbing those.
+
 
 * Future work ideas
 - get code running on some hosting
