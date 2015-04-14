@@ -365,6 +365,12 @@ on that tomorrow. I'm also going to work on cutting down the amount of
 config by figuring out which repositories have go code in them on the
 fly and grabbing those.
 
+** Day 26
+
+Here is the post for today, I broke stuff out into a config file. I
+really need to get better at building and running go programs, I've
+wasted so much time running old code by mistake AGGGG
+
 
 * Future work ideas
 - get code running on some hosting
