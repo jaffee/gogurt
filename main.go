@@ -9,9 +9,16 @@ import (
 	"strings"
 )
 
-const activityPath = "/Users/jaffee/go/src/github.com/jaffee/github/"
-const templateloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
-const staticloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
+//const activityPath = "/Users/jaffee/go/src/github.com/jaffee/github/"
+//const templateloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
+//const staticloc = "/Users/jaffee/go/src/github.com/jaffee/gogurt/"
+var config *Config
+
+type Config struct {
+	ActivityPath string
+	Templateloc  string
+	Staticloc    string
+}
 
 type RepoActivity struct {
 	Name    string
@@ -44,7 +51,7 @@ type RootPage struct {
 }
 
 func serveRoot(w http.ResponseWriter, r *http.Request) {
-	files, err := ioutil.ReadDir(activityPath)
+	files, err := ioutil.ReadDir(config.ActivityPath)
 	check(err)
 	dates := make([]string, len(files))
 	for i, f := range files {
@@ -55,14 +62,14 @@ func serveRoot(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	rootpg := &RootPage{Dates: dates}
-	t, err := template.ParseFiles(templateloc + "root.html")
+	t, err := template.ParseFiles(config.Templateloc + "root.html")
 	check(err)
 	t.Execute(w, rootpg)
 }
 
 func serveDay(w http.ResponseWriter, r *http.Request) {
 	date := r.URL.Path[len("/day/"):]
-	fname := activityPath + date + ".activity"
+	fname := config.ActivityPath + date + ".activity"
 	fmt.Println(fname)
 	fbytes, err := ioutil.ReadFile(fname)
 	var repoActivities []RepoActivity
@@ -70,18 +77,25 @@ func serveDay(w http.ResponseWriter, r *http.Request) {
 
 	check(err)
 	post := &Post{Title: date, Sections: repoActivities}
-	t, err := template.ParseFiles(templateloc + "day.html")
+	t, err := template.ParseFiles(config.Templateloc + "day.html")
 	check(err)
 	t.Execute(w, post)
 }
 
 func serveStatic(w http.ResponseWriter, r *http.Request) {
-	fname := staticloc + r.URL.Path[len("/static/"):]
+	fname := config.Staticloc + r.URL.Path[len("/static/"):]
 	http.ServeFile(w, r, fname)
 }
 
 func main() {
-	// TODO spin off file checker goroutine to see if new data needs to be fetched
+	conff, err := ioutil.ReadFile("config.json")
+	fmt.Printf("AAA%v\n", conff)
+
+	check(err)
+	config = &Config{}
+	err = json.Unmarshal(conff, config)
+	check(err)
+
 	http.HandleFunc("/", serveRoot)
 	http.HandleFunc("/day/", serveDay)
 	http.HandleFunc("/static/", serveStatic)
