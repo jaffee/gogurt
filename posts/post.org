@@ -371,8 +371,17 @@ Here is the post for today, I broke stuff out into a config file. I
 really need to get better at building and running go programs, I've
 wasted so much time running old code by mistake AGGGG
 
+** Day 27
+Broke github cmd config into a file. Basically I'm just unmarshaling
+the json and then copying it to the global variables. Had to do some
+hijinks with dates to get those to work. Apparently if your format
+string is supposed to have location info, using ParseInLocation
+doesn't work properly, so I had to use a custom format string which
+was basically RFC3339 with the Z part stripped off.
 
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
 - write a supervisor in go to restart it if it dies.
+- write an strace converter - looks at strace output and converts it
+  to a nice friendly human readable explanation
