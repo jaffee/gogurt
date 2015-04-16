@@ -379,6 +379,9 @@ string is supposed to have location info, using ParseInLocation
 doesn't work properly, so I had to use a custom format string which
 was basically RFC3339 with the Z part stripped off.
 
+** Day 28
+Hopefully finish up getting config squared away. Getting ready to push
+out to jaffee.co. Didn't actually write much code tonight, but s'all good.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
