@@ -89,7 +89,6 @@ func serveStatic(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	conff, err := ioutil.ReadFile("config.json")
-	fmt.Printf("AAA%v\n", conff)
 
 	check(err)
 	config = &Config{}
