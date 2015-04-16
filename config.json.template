@@ -1,0 +1,3 @@
+{"activityPath": "/path/to/activity/files/",
+ "templateloc": "/path/to/html/template/files/",
+ "staticloc": "/path/to/static/files/like/css/for/example"}
