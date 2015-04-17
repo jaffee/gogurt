@@ -381,7 +381,24 @@ was basically RFC3339 with the Z part stripped off.
 
 ** Day 28
 Hopefully finish up getting config squared away. Getting ready to push
-out to jaffee.co. Didn't actually write much code tonight, but s'all good.
+out to jaffee.co. Didn't actually write much code tonight, but s'all
+good.
+** Day 29
+I tried to get gogurt launched today but got a little sidetracked. I
+noticed that robpike.jaffee.co didn't seem to be working, and digging
+through my nginx config showed that there was no trace of
+robpike.io. Luckily there was an nginx.conf~ file that had my old
+config and I restored it, but I have no idea how that happened.
+
+Anyway I made a couple tweaks to robpike.io and tried to redeploy it
+under gosup. gosup needs fsnotify, so I tried go getting it on my
+server - that failed with an error message about syscall.Pipe2 being
+undefined. I'm not sure if this has to do with me running an
+incompatible version of go or something, but it's more than I want to
+deal with tonight. I did already spend a few hours at the go meetup
+tonight, so I figure I've done due diligence :)
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
