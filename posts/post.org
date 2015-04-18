@@ -398,6 +398,30 @@ incompatible version of go or something, but it's more than I want to
 deal with tonight. I did already spend a few hours at the go meetup
 tonight, so I figure I've done due diligence :)
 
+** Day 30
+Did a small amount of cleanup in gosup - which gave me some future
+work ideas. gosup is really bad a figuring out which files to watch
+right now - I'd like to fix that, or at least add options to be able
+to pass in which files/dirs to watch.
+
+One thought was to watch the binary for the actual program being
+executed - that would be easy enough, but wouldn't work in all
+cases. (such as go run x.go). It would work for installed go programs
+though, and might be a good place to start.
+
+Beyond that, looking at all processes in the process group and
+determining their locations might be an interesting challenge. Also
+having the ability to pass in extra files like a config file would
+probably be helpful as well.
+
+It just occurred to me that watching the binary isn't enough for
+development - you have to watch the source files and then
+automatically rebuild and re-run when they change. There is no general
+way to do that. This might end up being a go specific tool which uses
+the GOPATH to try to figure out from the binary which files to watch -
+although even that might not be possible without following some naming
+conventions. I'm beginning to think that explicit passing may just be
+the best option...
 
 * Future work ideas
 - get code running on some hosting
