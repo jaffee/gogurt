@@ -423,6 +423,16 @@ although even that might not be possible without following some naming
 conventions. I'm beginning to think that explicit passing may just be
 the best option...
 
+** Day 32
+Welp - I missed a day - at least for the post, I did commit some code
+though. I'm refactoring github.go to be more library-y. Building out
+all the structs to Unmarshal json and having an "Api" object (name may
+change) which users will use as the main interaction point -
+Api.Repositories, Api.Commits, etc.
+
+Should be fun... we'll see how it goes.
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
