@@ -432,6 +432,10 @@ Api.Repositories, Api.Commits, etc.
 
 Should be fun... we'll see how it goes.
 
+** Day 33
+Man I suck, these commits are getting lamer and lamer. I decided I
+need a way to store github responses, so I figure a json document
+store would be fun to do. Didn't get much done though, pretty sleepy.
 
 * Future work ideas
 - get code running on some hosting
