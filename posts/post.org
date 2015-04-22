@@ -436,6 +436,18 @@ Should be fun... we'll see how it goes.
 Man I suck, these commits are getting lamer and lamer. I decided I
 need a way to store github responses, so I figure a json document
 store would be fun to do. Didn't get much done though, pretty sleepy.
+** Day 34
+Things went a bit better today. I did some thinking about goikos and
+how I wanted it to accept binary gobs and store them efficiently -
+then I decided I would need some kind of client program to exercise
+it, and started digging back into the github api stuff. That took me
+down the rabbit hole of how to properly handle errors, and how to
+decide what action to take based on an error's type.
+
+You can do something like err.(type), but only inside a switch
+statement which I found to be very odd. Will have to learn more about
+that.
+
 
 * Future work ideas
 - get code running on some hosting
