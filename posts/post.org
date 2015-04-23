@@ -448,7 +448,11 @@ You can do something like err.(type), but only inside a switch
 statement which I found to be very odd. Will have to learn more about
 that.
 
-
+** Day 35
+Today I did an easy hackerrank problem because I didn't have much
+time. I do need to keep practicing though - easy things are still
+hard! Derp - how do I iterate over an array of ints again? How do I
+initialize it?
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
