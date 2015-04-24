@@ -453,9 +453,21 @@ Today I did an easy hackerrank problem because I didn't have much
 time. I do need to keep practicing though - easy things are still
 hard! Derp - how do I iterate over an array of ints again? How do I
 initialize it?
+** Day 36
+Couple more hackerrank problems today - need to start looking at other
+answers to see better go code.
+
+I also got an idea for something I'd like to do as soon as I get some
+more time. Basically I want to write the server for a multiplayer
+browser game which is played over some kind of basic HTTP API. I think
+it'd be a lot of fun to see many clients connecting and battling it
+out in some way - sort of similar to nodewar of old.
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
 - write a supervisor in go to restart it if it dies.
 - write an strace converter - looks at strace output and converts it
   to a nice friendly human readable explanation
+- online multiplayer game with many clients sending state stuff to the server
