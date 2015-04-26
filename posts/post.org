@@ -468,7 +468,15 @@ I re-wrote the song of pi hackerrank problem using more help from
 libraries after reading through some of the other hackerrank
 solutions. Most notably, strings.Split was helpful, and bufio reader's
 .ReadString method. I also figured out a syntax for declaring top
-level variables that seems to work... not sure why I couldn't do that before...
+level variables that seems to work... not sure why I couldn't do that
+before...
+** Day 38
+Been thinking about the multiplayer game, but the only code I did
+today was an easy hackerrank problem. I don't think I learned much new
+with that.
+
+Game wise, I think I need to just implement something simple to get
+the flavor... I'll keep thinking...
 
 * Future work ideas
 - get code running on some hosting
