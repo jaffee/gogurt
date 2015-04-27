@@ -478,6 +478,40 @@ with that.
 Game wise, I think I need to just implement something simple to get
 the flavor... I'll keep thinking...
 
+** Day 39
+Another hackerrank this morning - one of the INTRO questions on their
+AI section is TSP.... like... wat? Apparently they just don't have any
+hard testcases, but how are you supposed to know that going in? Blerg.
+
+In other news I've done a bunch more thinking and a little coding on
+the multiplayer game. I threw out the idea of doing something
+stateless pretty early on. The whole idea here is to do something
+kinda real-timey and manage a bunch of connections at once.
+
+I'm going to do something like pocket tanks. User connects, says "I
+want to start a game" he's added to a queue - two users are pulled off
+the queue and matched up. They are each sent an initial game state
+consisting of the arena, their position, their opponent's position,
+initial ammo supply and uh... probably some other stuff... gravity?
+
+The players then send back their shots which consist of the angle they
+are firing at, and the power... or maybe just angle, who knows. But
+here's the clincher - it isn't turn based - you can fire all ten shots
+right at once if you want - the only limiting factor is that you have
+to wait for a response as to the outcome of your shot from the server
+IF you want to adjust your aim based on the results. I'm hoping this
+will lead to some interesting strategical decisions... also make it
+very difficult to play as a human.
+
+The other thing I haven't mentioned yet is that there will be
+wind... but you don't know how hard it's blowing until you fire - then
+you can try to deduce that information.
+
+I think it'll be fun! We'll find out.
+
+
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
