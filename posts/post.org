@@ -511,7 +511,8 @@ I think it'll be fun! We'll find out.
 
 
 
-
+** Day 40
+Busy day - tried to do maximum sum subarray problem but got bugs.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
