@@ -513,6 +513,32 @@ I think it'll be fun! We'll find out.
 
 ** Day 40
 Busy day - tried to do maximum sum subarray problem but got bugs.
+** Day 41
+Alright - I'm going to be extra lame today - I fixed the bugs in the
+subarray problem last night and committed after midgnight... I'm
+counting it. I do at least have some interesting discussion to go with
+it though.
+
+This problem had some large testcases which were checking for a
+performant solution. My first solution timed out on one test case,
+although I was quite sure that it was algorithmically correct -
+O(n). I've had this problem in the past on hackerrank and suspected
+that it might be an I/O issue. I was using fmt.Scan to read in all the
+input.
+
+I decided to forgo the remaining points and inspect some other entries
+in Go that had gotten the maximum amount of points. The first solution
+I looked at was very similar to mine except that it used a
+bufio.Reader and fmt.Fscan. Doing this simple conversion allowed me to
+pass the final testcase.
+
+I'm assuming this was due to the buffered reader reading in a large
+chunk of the file at once and then scanning it in from memory instead
+of reading a couple bytes at a time with each Scan call - in any case
+I'm glad it worked. I may need to go back and find that other problem
+I struggled with...
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
