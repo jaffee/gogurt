@@ -538,7 +538,11 @@ of reading a couple bytes at a time with each Scan call - in any case
 I'm glad it worked. I may need to go back and find that other problem
 I struggled with...
 
-
+** Day 42
+Partially implemented a hackerrank problem... I know, I know lame
+city. This problem is pretty tough though and I'm beat - I'll try to
+do better tomorrow, although no promises on getting anything cool done
+until next week - lot going on right now.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
