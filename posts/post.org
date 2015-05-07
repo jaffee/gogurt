@@ -547,7 +547,11 @@ until next week - lot going on right now.
 Had to pull out the sorting library for today's hackerrank problem. In
 general to sort stuff you have to implement sort.Interface which means
 defining Less, Swap, and Len on whatever thing you want to sort. There
-was a builtin for sorting slices of integers though, so I got off easy.
+was a builtin for sorting slices of integers though, so I got off
+easy.
+** Day 49
+Lamesauce hackerrank problem. I did try to think about game stuff a
+bit - even started writing a couple structs, but nothing commitable.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
