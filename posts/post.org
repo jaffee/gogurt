@@ -552,6 +552,18 @@ easy.
 ** Day 49
 Lamesauce hackerrank problem. I did try to think about game stuff a
 bit - even started writing a couple structs, but nothing commitable.
+** Day 50
+Hackerrank - rectangular game.
+** 5/15
+Don't even know what day number it is anymore, but IM BACK BABY.
+
+And with a real commit too - I pushed the beginnings of gobani, a
+network based game. What it does right now isn't too exciting, but it
+lays some good framework. It's got a listener for new connections, a
+struct for players and even a matchmaking system! Well... really I'm
+just putting every new connection that I handle into a channel and I
+have a goroutine that reads them off two at a time in order to pair
+them for battle... BUT THAT IS A MATCHMAKING SYSTEM. Go is cool.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
