@@ -573,6 +573,14 @@ I might start with something simpler and go from there.
 Wasn't quite able to test what I wanted to do before midnight, but I
 decided to go ahead and implement RPS just to make sure the most basic
 thing possible was working.
+** 5/18
+Got RPS fully working with scoring and all that. Anytime I try to do
+something in go that is normally difficult - like concurrently
+handling multiple connections, communicating between processes, a
+matchmaking system, etc. etc. It ends up being way easy. But any time
+I want to do something easy... like getting the index of a string in a
+list of strings - I end up having to write like 6 lines of code! This
+is a weird language.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
