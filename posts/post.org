@@ -581,6 +581,9 @@ matchmaking system, etc. etc. It ends up being way easy. But any time
 I want to do something easy... like getting the index of a string in a
 list of strings - I end up having to write like 6 lines of code! This
 is a weird language.
+** 5/19
+Tried to write a tiny bot to play RPS. Got stymied by the server
+receiving an EOF... not sure why yet.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
