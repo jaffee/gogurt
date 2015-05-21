@@ -584,6 +584,13 @@ is a weird language.
 ** 5/19
 Tried to write a tiny bot to play RPS. Got stymied by the server
 receiving an EOF... not sure why yet.
+** 5/20
+Had some people at the office play over the network today which was
+pretty funny. Unfortunately I'd forgotten to run the main game in a go
+routine, so not more than one game could happen at once. But I fixed
+that and added a lot of error handling so that it's less likely that a
+player can crash the whole game. I also added some more prompting so
+that players have some idea of what to do.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
