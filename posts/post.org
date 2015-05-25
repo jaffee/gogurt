@@ -591,6 +591,13 @@ routine, so not more than one game could happen at once. But I fixed
 that and added a lot of error handling so that it's less likely that a
 player can crash the whole game. I also added some more prompting so
 that players have some idea of what to do.
+** 5/24
+Geez this wagon is bumpin all over the place.
+
+I refactored the networked game today into a turn based telnet game
+library. Pretty featureless at the moment, but I'm excited to pump out
+a few simple games over the next few days. Maybe I'll do a game a day
+this week :).
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
