@@ -603,6 +603,9 @@ Alright! Getting started on a new game was as easy as it should
 be. Welcome to Gold Race! Where two players race for Gold! Or actually
 where one player gives her name and ten lines of then 'O's printed to
 her terminal... and then nothing else. I think we're ready to ship.
+** 5/27
+Added player and gold to gold race ('P' and 'G'), and by typing 'u',
+player can move up!
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
