@@ -606,6 +606,16 @@ her terminal... and then nothing else. I think we're ready to ship.
 ** 5/27
 Added player and gold to gold race ('P' and 'G'), and by typing 'u',
 player can move up!
+** 5/29
+I oops'd and forgot to post before midnight... damn.
+
+Anyway, today is a very exciting day! I've got multiplayer goldrace
+working - and not just 2 player, but N player. I'm pretty sure I can
+vary the size of the battlefield and number of players to whatever I
+want. Exciting stuff!
+
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
