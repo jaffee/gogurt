@@ -613,8 +613,25 @@ Anyway, today is a very exciting day! I've got multiplayer goldrace
 working - and not just 2 player, but N player. I'm pretty sure I can
 vary the size of the battlefield and number of players to whatever I
 want. Exciting stuff!
+** 5/30
+Added some niceties today, and started working on doing real time vs
+turn based - this presented some interesting issues.
 
+I knew I would need a goroutine per-player to handle blocking Recv
+calls and then send the message back on a channel which can be
+selected over. The first issue that came up was that if a goroutine is
+constantly just Recv-ing and sending the message over a channel, there
+is no way to stop that routine, so I had to add another channel which
+it polls to see if it needs to quit (say if another player won the
+game). Really though, I think I need to beef up the receiving routine
+to fully validate the input at the game's level of abstraction and
+return actual moves/actions. Then it can kill itself and tell the
+controlling thread the player is gone if the player exits.
 
+The other issue with trying to receive in put from multiple players is
+that there isn't a built in way in go to receive input over an
+arbitrary number of channels - you have to use the reflect
+package. That's kind of disappointing, but we'll see how it feels tomorrow.
 
 * Future work ideas
 - get code running on some hosting
