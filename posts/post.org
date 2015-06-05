@@ -633,6 +633,16 @@ that there isn't a built in way in go to receive input over an
 arbitrary number of channels - you have to use the reflect
 package. That's kind of disappointing, but we'll see how it feels tomorrow.
 
+** 6/4
+Whew - comin back with a vengeance tonight! All kinds of refactoring
+going on in goldrace. Anonymous fields, promoted methods - shit is
+truly cray up in this.
+
+...and once I get it all to actually work I will totally tell you all
+about it. But for now - know that I'm trying to get real time mode
+working (as opposed to turn based).
+
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
