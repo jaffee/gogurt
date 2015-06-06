@@ -683,6 +683,21 @@ value after the game it is over before it will exit and allow the new
 game's reading goroutine to get data. Not sure what the best way to
 deal with this will be.
 
+** 6/6
+Did some refactoring and added collision detection. Still not sure how
+I'm going to solve the one too many reads problem. I'm thinking I need
+to have one persistent go routine per Player that recvs their messages
+for all games they play as long as they are connected. But I'll need
+some kind of routing logic to make sure that I can send a single
+channel to each game that it can read from in order to get its
+player's moves.
+
+I'm also thinking I should have some kind ability to pass in
+pre-created levels - I'd like to do random level generation, but
+making sure that those are fair and fun will be challening, and I
+think that eventually giving people the ability to create their own
+levels would be saweeeeeeeeeet.
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
