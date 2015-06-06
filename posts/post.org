@@ -642,6 +642,46 @@ truly cray up in this.
 about it. But for now - know that I'm trying to get real time mode
 working (as opposed to turn based).
 
+** 6/5
+Alright, goldrace is a functional realtime multiplayer networked
+game. Mad hot wootage.
+
+I think I managed to squeeze the majority of go features into this
+little project. It's clocking in at about 300 lines between the game
+and the 'framework'.
+
+Using anonymous fields allowed me to extend the Player struct from the
+framework and add in any fields/methods I needed to it for my specific
+game - but I could still transparently call methods on the base
+Player.
+
+Of course I used channels and goroutines to handle player input, I
+used variadic functions, although I'm pretty sure that was actually
+uneccessary. I used defer and recover in a fairly useful way. I used
+pointers quite a bit with my players so that I could have them update
+their own locations and then have the battlefield see that when it
+toString'd itself.
+
+I guess I didn't really do much with interfaces, and I didn't use maps
+which I should probably try to get familiar with soon. I didn't use
+mutexes for anything, although I could imagine that happening in the
+future.
+
+One interesting problem I had was to receive data from an arbitrary
+number of network connections. You can only use select over channels,
+so I wrapped each conn.Read in a goroutine, but then you can't select
+over a list of connections (without library help). So what I ended up
+doing (at the suggestion of my esteemed colleague Cody) was having all
+the conn.Read goroutines write to the same channel and just selected
+on that... so simple.
+
+I still have a few things I want to do with this - beefing up the
+matchmaker, collision detection, obstacles, etc.
+
+There is also a bug where the reading goroutine needs to read one more
+value after the game it is over before it will exit and allow the new
+game's reading goroutine to get data. Not sure what the best way to
+deal with this will be.
 
 * Future work ideas
 - get code running on some hosting
