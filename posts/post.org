@@ -698,6 +698,12 @@ making sure that those are fair and fun will be challening, and I
 think that eventually giving people the ability to create their own
 levels would be saweeeeeeeeeet.
 
+** 6/7
+Started making some bugfixes today - we weren't surving a player
+quitting and now we are. Need to work on the overall handling of a
+quitting player though - notifying other threads that the player is
+gone and the object should be removed, and not re-enqueued, etc.
+
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
