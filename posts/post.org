@@ -704,6 +704,12 @@ quitting and now we are. Need to work on the overall handling of a
 quitting player though - notifying other threads that the player is
 gone and the object should be removed, and not re-enqueued, etc.
 
+** 6/8
+Didn't have much time today, so I switched from using fmt to log for
+my debugging print statements - all I know right now is that it adds
+timestamps to the prints, and there is some way to configure it
+instead of just using the default logger (which literally means
+replacing 'fmt' with 'log').
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
