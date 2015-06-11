@@ -710,6 +710,19 @@ my debugging print statements - all I know right now is that it adds
 timestamps to the prints, and there is some way to configure it
 instead of just using the default logger (which literally means
 replacing 'fmt' with 'log').
+** 6/9
+I did my go today at work! You won't see it on my github. We had a
+service which wasn't reporting errors very well, so I converted a
+function to return both a result and an error, and then returned
+errors where they were happening instead of continuing on. This caused
+the error to be propagated up the stack and eventually returned to the
+client as an HTTP 500.
+
+The error that was happening though was actually a client error and
+so should have been in the 400s. The error message was also far too
+descriptive - especially if it were a public facing service (it
+isn't), but I'll be digging into rectifying both of these issues soon
+(I hope).
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
