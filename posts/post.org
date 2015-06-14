@@ -723,6 +723,11 @@ so should have been in the 400s. The error message was also far too
 descriptive - especially if it were a public facing service (it
 isn't), but I'll be digging into rectifying both of these issues soon
 (I hope).
+** 6/13
+Broke goldrace trying to fix the issue where the game would know that
+a player was gone but the framework wouldn't. The code runs now but
+doesn't actually work. I introduced maps which was cool but I have a
+lot of stuff to fix. I think most of my problems involve pointers.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
