@@ -728,6 +728,13 @@ Broke goldrace trying to fix the issue where the game would know that
 a player was gone but the framework wouldn't. The code runs now but
 doesn't actually work. I introduced maps which was cool but I have a
 lot of stuff to fix. I think most of my problems involve pointers.
+** 6/14
+Ok, everything is peachy again. It was pointer issues as I had
+suspected, although there were a number of other bugs as well.
+
+I need to do some more testing around quitting and starting new
+games - if a player's connection fails, that player should not be
+re-enqueued - I think that's implemented now, but I certainly haven't checked.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
