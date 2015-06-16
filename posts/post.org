@@ -734,7 +734,24 @@ suspected, although there were a number of other bugs as well.
 
 I need to do some more testing around quitting and starting new
 games - if a player's connection fails, that player should not be
-re-enqueued - I think that's implemented now, but I certainly haven't checked.
+re-enqueued - I think that's implemented now, but I certainly haven't
+checked.
+** 6/15
+Starting trying to write a client for the game. Basically just my own
+version of telnet/netcat, but would send each character as soon as it
+is received. This has made me realize that I now need to define some
+kind of protocol. Right now the protocol is just this sort of implied
+line buffered thing, but really I need a way to define what
+constitutes a complete message.
+
+I think for now I will define each outgoing message (from client to
+server) as being line buffered, and server to client is just constant
+updates of the game state which need to be printed to the terminal.
+
+I'm having a bit of trouble reading from stdin though - I'm not sure
+how ask if there is a character available - basically do a non
+blocking read. I guess I'll have to wrap it in a goroutine and select
+over a channel as usual. Whatevs.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
