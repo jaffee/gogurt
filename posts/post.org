@@ -752,6 +752,23 @@ I'm having a bit of trouble reading from stdin though - I'm not sure
 how ask if there is a character available - basically do a non
 blocking read. I guess I'll have to wrap it in a goroutine and select
 over a channel as usual. Whatevs.
+** 6/16?
+I finished the client. Forgot to write a post. Iended up wrapping that
+thing in a goroutine - that worked great. I also figured out how to
+get the terminal into raw mode so that it wouldn't line buffer input -
+the client allows you to move around without hitting enter which is
+pretty nice.
+
+** 6/20
+How'd I miss so many days? I started playing around with OpenGL a
+little bit tonight. Basically all I know is that it's a crufty old API
+with a lot of BS to work around, but it's really the only game in
+town. Kind of a sad state of affairs in graphics land. I really want
+to play around with physics and somehow I don't think the terminal is
+the best place to do that - I'm biting the bullet and starting the
+dive into OpenGL. So far I've run someone else's code, and copied part
+of it just to create a window. I actually consider it a major victory
+that it was that easy to get running.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
