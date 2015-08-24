@@ -769,6 +769,15 @@ the best place to do that - I'm biting the bullet and starting the
 dive into OpenGL. So far I've run someone else's code, and copied part
 of it just to create a window. I actually consider it a major victory
 that it was that easy to get running.
+** 8/23
+Back in the saddle. I'm giving a quick talk on Gobani at the Go meetup
+this Wednesday, so I figured I'd better polish this thing up and get
+it running somewhere on the internet. Tonight, I used the 'flags'
+package to add a command line parameter (for the port), installed Go
+1.5, figured out how to cross compile goldrace from my Mac to run on
+the Debian instance I have with digital ocean, and "deployed" it to
+there. Of course by "deployed" I mean "scp'd" and started it, because
+you know... statically linked binaries are the shit.
 * Future work ideas
 - get code running on some hosting
 - set up git hooks to restart it every time there's a push
